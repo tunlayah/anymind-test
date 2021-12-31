@@ -6,6 +6,8 @@ import com.anymind.anymindtest.domain.entity.BitcoinWalletSummary
 import com.anymind.anymindtest.domain.service.BitcoinWalletSummaryService
 import java.time.ZonedDateTime
 import java.time.temporal.ChronoUnit
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -28,6 +30,10 @@ class BitcoinWalletSummaryHibernateServiceImpl(
             }
         }
         return save(bitcoinWalletSummary)
+    }
+
+    override fun getSummary(startDate: ZonedDateTime, endDate: ZonedDateTime, pageable: Pageable): Page<BitcoinWalletSummary> {
+        return bitcoinWalletSummaryRepository.findByDatetimeGreaterThanEqualAndDatetimeLessThanEqual(startDate, endDate, pageable) as Page<BitcoinWalletSummary>
     }
 
     @Transactional(readOnly = true)
