@@ -7,6 +7,6 @@ import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface BitcoinWalletSummaryRepository : JpaRepository<BitcoinWalletSummaryHibernateImpl, Long> {
-    fun findFirstByDatetime(datetime: ZonedDateTime): BitcoinWalletSummaryHibernateImpl?
+    fun findFirstByOrderByDatetimeDesc(): BitcoinWalletSummaryHibernateImpl?
     fun findByDatetimeGreaterThanEqualAndDatetimeLessThanEqual(startDatetime: ZonedDateTime, endDatetime: ZonedDateTime, pageable: Pageable): Page<BitcoinWalletSummaryHibernateImpl>
 }
