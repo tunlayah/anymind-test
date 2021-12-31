@@ -5,5 +5,6 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/20211229221605_create_bitcoin_transaction_table.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20211231153008_create_bitcoin_summary_table.xml" relativeToChangelogFile="false"/>
 
 </databaseChangeLog>
